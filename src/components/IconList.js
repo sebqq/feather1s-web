@@ -1,7 +1,19 @@
 import React, { memo } from "react";
 import Icon from "./Icon";
-import ALL_ICONS from "../requireIconpack";
+import { icons } from "../iconpack";
 import styled from "styled-components";
+
+const IconList = ({ search }) => {
+  return (
+    <OuterContainer>
+      <Container>
+        {icons.map(icon => (
+          <Icon key={icon} name={icon} search={search} size={25} />
+        ))}
+      </Container>
+    </OuterContainer>
+  );
+};
 
 const Container = styled.div`
   width: ${props => "70%"};
@@ -22,17 +34,5 @@ const OuterContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
 `;
-
-const IconList = ({ search }) => {
-  return (
-    <OuterContainer>
-      <Container>
-        {ALL_ICONS.map(({ name, value }) => (
-          <Icon key={name} name={name} path={value} search={search} size={25} />
-        ))}
-      </Container>
-    </OuterContainer>
-  );
-};
 
 export default memo(IconList);

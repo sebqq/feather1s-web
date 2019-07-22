@@ -1,7 +1,34 @@
 import React, { memo } from "react";
-import { ReactComponent as GithubIcon } from "/svg/github.svg";
+import { ReactComponent as GithubIcon } from "../icons/github.svg";
 import useWindowSize from "@rehooks/window-size";
 import styled from "styled-components";
+
+const Header = () => {
+  const { innerWidth } = useWindowSize();
+  const isMobile = innerWidth <= 500 ? true : false;
+  const isXs = innerWidth < 400 ? true : false;
+
+  return (
+    <Container>
+      <List isMobile={isMobile} flex={1}>
+        <ListItem isTitle>Feather1s</ListItem>
+      </List>
+      <List isMobile={isMobile} right flex={2}>
+        <ListItem>
+          <ListLink href="https://github.com/sinodko/feather1s" height={22}>
+            <SVG width={20} height={20} />
+            <ListText height={20}>GitHub</ListText>
+          </ListLink>
+        </ListItem>
+        <ListItem hide={isXs}>
+          <ListLink href="https://github.com/sinodko/react-native-feather1s">
+            <ListText height={20}>React Native</ListText>
+          </ListLink>
+        </ListItem>
+      </List>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   width: 100%;
@@ -26,8 +53,8 @@ const ListItem = styled.li`
   display: ${props => (props.hide ? "none" : "inline-block")};
   margin-left: 15px;
   margin-right: 15px;
-  font-weight: ${props => (props.title ? "bold" : "normal")};
-  font-size: ${props => (props.title ? "1.3" : "1")}rem;
+  font-weight: ${props => (props.isTitle ? "bold" : "normal")};
+  font-size: ${props => (props.isTitle ? "1.3" : "1")}rem;
 `;
 
 const ListLink = styled.a`
@@ -38,6 +65,9 @@ const ListLink = styled.a`
   text-decoration: none;
   :hover {
     color: royalblue;
+    svg {
+      fill: royalblue;
+    }
   }
 `;
 
@@ -52,32 +82,5 @@ const SVG = styled(GithubIcon)`
   margin-right: 7px;
   flex: 1;
 `;
-
-const Header = () => {
-  const { innerWidth } = useWindowSize();
-  const isMobile = innerWidth <= 500 ? true : false;
-  const isXs = innerWidth < 400 ? true : false;
-
-  return (
-    <Container>
-      <List isMobile={isMobile} flex={1}>
-        <ListItem title>Feather1s</ListItem>
-      </List>
-      <List isMobile={isMobile} right flex={2}>
-        <ListItem>
-          <ListLink href="https://github.com/sinodko/feather1s" height={22}>
-            <SVG width={20} height={20} />
-            <ListText height={20}>GitHub</ListText>
-          </ListLink>
-        </ListItem>
-        <ListItem hide={isXs}>
-          <ListLink href="https://github.com/sinodko/react-native-feather1s">
-            <ListText height={20}>React Native</ListText>
-          </ListLink>
-        </ListItem>
-      </List>
-    </Container>
-  );
-};
 
 export default memo(Header, () => true);

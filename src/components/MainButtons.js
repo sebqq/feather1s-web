@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactComponent as DownloadIcon } from "../icons/download.svg";
 import styled from "styled-components";
 
 const onPressDesignerPack = () => {
@@ -22,6 +23,7 @@ const MainButtons = () => {
       <ButtonSecondary onClick={onPressSvg}>Get SVGs</ButtonSecondary>
       <ButtonSecondary onClick={onPressTtf}>Get .ttf</ButtonSecondary>
       <ButtonPrimary onClick={onPressDesignerPack}>
+        <StyledDownloadIcon />
         Get Designer pack
       </ButtonPrimary>
     </Container>
@@ -62,6 +64,13 @@ const ButtonPrimary = styled(Button)`
   :hover {
     background: #4c566a;
   }
+`;
+
+const StyledDownloadIcon = styled(DownloadIcon)`
+  height: 17px;
+  width: 17px;
+  margin-right: 10px;
+  fill: #eceff4;
 `;
 
 const ButtonSecondary = styled(Button)`

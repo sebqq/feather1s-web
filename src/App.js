@@ -5,7 +5,23 @@ import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import IconList from "./components/IconList";
 
-const GlobalStyle = createGlobalStyle`
+const App = () => {
+  const [search, setSearch] = useState("");
+  return (
+    <Container>
+      <GlobalStyle />
+      <Header>
+        <SearchBar search={search} setSearch={setSearch} />
+      </Header>
+      <BodyComponent>
+        <IconList search={search} />
+        <Footer />
+      </BodyComponent>
+    </Container>
+  );
+};
+
+const GlobalStyle = createGlobalStyle`  
   #root {
     height: 100vh;
   }
@@ -15,15 +31,8 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
-  }
   body,
   html {
-    text-align: center;
-    padding: 0;
-    margin: 0;
     background-color: rgb(250, 250, 250);
     overflow-x: hidden;
     height: 100%
@@ -39,22 +48,5 @@ const Container = styled.div`
 const BodyComponent = styled.div`
   z-index: 2;
 `;
-
-function App() {
-  const [search, setSearch] = useState(null);
-
-  return (
-    <Container>
-      <GlobalStyle />
-      <Header>
-        <SearchBar search={search} setSearch={setSearch} />
-      </Header>
-      <BodyComponent>
-        <IconList search={search} />
-        <Footer />
-      </BodyComponent>
-    </Container>
-  );
-}
 
 export default App;

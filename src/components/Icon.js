@@ -1,6 +1,26 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo } from "react";
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
+
+const Icon = ({ name, search, size }) => {
+  const path = useMemo(() => require(`../icons/${name}.svg`), [name]);
+  const icon = useMemo(() => {
+    return (
+      <SVG key={size} src={path} width={size} height={size} cacheRequests />
+    );
+  }, [name, size, path]);
+
+  if (search && !name.includes(search)) {
+    return null;
+  }
+
+  return (
+    <Container href={path} download={`${name}.svg`} target="_blank">
+      <IconContainer>{icon}</IconContainer>
+      <Text>{name}</Text>
+    </Container>
+  );
+};
 
 const IconContainer = styled.div`
   display: flex;
@@ -18,52 +38,26 @@ const Container = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
+  margin: 0 5px;
   color: black;
   text-decoration: none;
   width: 100px;
   :hover {
     cursor: pointer;
+    svg {
+      fill: royalblue;
+    }
+    p {
+      color: royalblue;
+    }
   }
 `;
 
 const Text = styled.p`
   word-wrap: break-word;
+  text-align: center;
   font-weight: 400;
   margin-top: 10px;
-  margin-bottom: 0;
 `;
-
-const SVGIcon = styled(SVG)`
-  fill: yellow;
-`;
-
-const getDownloadUrl = name =>
-  `https://github.com/sinodko/feather1s/raw/master/exported-svg/${name}.svg`;
-
-const Icon = ({ name, path, search, size }) => {
-  const icon = useMemo(() => {
-    return (
-      <SVGIcon key={size} src={path} width={size} height={size} cacheRequests />
-    );
-  }, [path, size]);
-
-  const onPress = useCallback(() => {
-    window.open(getDownloadUrl(name), "_blank");
-  }, [name]);
-
-  if (search && !name.includes(search)) {
-    return null;
-  }
-
-  return (
-    <Container href={`../assets/svg/${name}.svg`} download target="_blank">
-      <IconContainer>{icon}</IconContainer>
-      <Text>{name}</Text>
-    </Container>
-  );
-};
 
 export default Icon;

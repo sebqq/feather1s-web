@@ -1,6 +1,20 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 
+const Footer = () => {
+  return (
+    <Container>
+      <Text>
+        Origin <Link href={"https://feathericons.com/"}>Feather icon pack</Link>{" "}
+        is created by <TextBold>Cole Bemis</TextBold>
+      </Text>
+      <Text>
+        Feather1s are created by <TextBold>Sebastian Trebunak</TextBold>
+      </Text>
+    </Container>
+  );
+};
+
 const Container = styled.div`
   display: flex !important;
   justify-content: center;
@@ -27,19 +41,5 @@ const Text = styled.p`
 const TextBold = styled.span`
   font-weight: 600;
 `;
-
-const Footer = () => {
-  return (
-    <Container>
-      <Text>
-        Origin <Link href={"https://feathericons.com/"}>Feather icon pack</Link>{" "}
-        is created by <TextBold>Cole Bemis</TextBold>
-      </Text>
-      <Text>
-        Feather1s are created by <TextBold>Sebastian Trebunak</TextBold>
-      </Text>
-    </Container>
-  );
-};
 
 export default memo(Footer, () => true);
