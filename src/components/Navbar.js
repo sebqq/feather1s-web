@@ -1,11 +1,7 @@
 import React, { memo } from "react";
-import SVGIcon from "react-inlinesvg";
-import ALL_ICONS from "../requireIconpack";
+import { ReactComponent as GithubIcon } from "/svg/github.svg";
+import useWindowSize from "@rehooks/window-size";
 import styled from "styled-components";
-
-const GITHUB_ICON_PATH = ALL_ICONS.filter(({ name }) => name === "github")[0]
-  .value;
-console.log(GITHUB_ICON_PATH[0]);
 
 const Container = styled.div`
   width: 100%;
@@ -14,22 +10,24 @@ const Container = styled.div`
 `;
 
 const List = styled.ul`
-  display: flex;
-  flex: 1;
+  display: ${({ isMobile, hide }) => (hide && isMobile ? "none" : "flex")};
+  flex: ${props => props.flex};
   justify-content: ${props => (props.right ? "flex-end" : "flex-start")};
   margin-block-start: 1em;
   margin-block-end: 1em;
-  margin-inline-start: 1em;
-  margin-inline-end: 1em;
-  padding-inline-start: 40px;
-  padding-inline-end: 40px;
+  margin-inline-start: ${props => (props.isMobile ? "5px" : "1em")};
+  margin-inline-end: ${props => (props.isMobile ? "5px" : "1em")};
+  padding-inline-start: ${props => (props.isMobile ? "5px" : "40px")};
+  padding-inline-end: ${props => (props.isMobile ? "5px" : "40px")};
+  align-items: center;
 `;
 
 const ListItem = styled.li`
-  display: inline-block;
+  display: ${props => (props.hide ? "none" : "inline-block")};
   margin-left: 15px;
   margin-right: 15px;
-  font-weight: ${props => (props.bold ? "bold" : "normal")};
+  font-weight: ${props => (props.title ? "bold" : "normal")};
+  font-size: ${props => (props.title ? "1.3" : "1")}rem;
 `;
 
 const ListLink = styled.a`
@@ -41,33 +39,40 @@ const ListLink = styled.a`
   :hover {
     color: royalblue;
   }
+`;
+
+const ListText = styled.span`
   span {
     flex: 1;
     height: ${props => props.height}px;
   }
 `;
 
-const SVG = styled(SVGIcon)`
+const SVG = styled(GithubIcon)`
   margin-right: 7px;
   flex: 1;
 `;
 
 const Header = () => {
+  const { innerWidth } = useWindowSize();
+  const isMobile = innerWidth <= 500 ? true : false;
+  const isXs = innerWidth < 400 ? true : false;
+
   return (
     <Container>
-      <List>
-        <ListItem bold>Feather1s</ListItem>
+      <List isMobile={isMobile} flex={1}>
+        <ListItem title>Feather1s</ListItem>
       </List>
-      <List right>
+      <List isMobile={isMobile} right flex={2}>
         <ListItem>
           <ListLink href="https://github.com/sinodko/feather1s" height={22}>
-            <SVG src={GITHUB_ICON_PATH} width={20} height={20} cacheRequests />
-            <span>GitHub</span>
+            <SVG width={20} height={20} />
+            <ListText height={20}>GitHub</ListText>
           </ListLink>
         </ListItem>
-        <ListItem>
+        <ListItem hide={isXs}>
           <ListLink href="https://github.com/sinodko/react-native-feather1s">
-            React Native
+            <ListText height={20}>React Native</ListText>
           </ListLink>
         </ListItem>
       </List>

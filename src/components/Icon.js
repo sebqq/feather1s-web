@@ -14,13 +14,15 @@ const IconContainer = styled.div`
   border-radius: 7px;
 `;
 
-const OuterContainer = styled.div`
+const Container = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
   width: 100px;
   :hover {
     cursor: pointer;
@@ -38,6 +40,9 @@ const SVGIcon = styled(SVG)`
   fill: yellow;
 `;
 
+const getDownloadUrl = name =>
+  `https://github.com/sinodko/feather1s/raw/master/exported-svg/${name}.svg`;
+
 const Icon = ({ name, path, search, size }) => {
   const icon = useMemo(() => {
     return (
@@ -45,15 +50,19 @@ const Icon = ({ name, path, search, size }) => {
     );
   }, [path, size]);
 
+  const onPress = useCallback(() => {
+    window.open(getDownloadUrl(name), "_blank");
+  }, [name]);
+
   if (search && !name.includes(search)) {
     return null;
   }
 
   return (
-    <OuterContainer>
+    <Container href={`../assets/svg/${name}.svg`} download target="_blank">
       <IconContainer>{icon}</IconContainer>
       <Text>{name}</Text>
-    </OuterContainer>
+    </Container>
   );
 };
 

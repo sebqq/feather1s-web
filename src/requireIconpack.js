@@ -1,4 +1,4 @@
-var req = require.context("./assets/svg", false, /.*\.svg$/);
+var req = require.context(process.env.PUBLIC_URL + "/svg", false, /.*\.svg$/);
 
 let icons = [];
 req.keys().forEach(function(key) {

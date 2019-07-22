@@ -3,8 +3,6 @@ import Icon from "./Icon";
 import ALL_ICONS from "../requireIconpack";
 import styled from "styled-components";
 
-import "react-rangeslider/lib/index.css";
-
 const Container = styled.div`
   width: ${props => "70%"};
   display: grid !important;
@@ -23,7 +21,6 @@ const OuterContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 120px;
 `;
 
 const IconList = ({ search }) => {
