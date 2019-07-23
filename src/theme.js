@@ -9,7 +9,8 @@ export default {
     primaryTint: "#4c566a",
     secondaryColor: "#eceff4",
     secondaryTint: "#E5E9F0",
-    linkColor: "#ff7675"
+    linkColor: "#ff7675",
+    textMuted: "#4C566A"
   },
   dark: {
     name: "dakr",
@@ -20,6 +21,7 @@ export default {
     primaryTint: "#D8DEE9",
     secondaryColor: "#434c5e",
     secondaryTint: "#4C566A",
-    linkColor: "#a29bfe"
+    linkColor: "#a29bfe",
+    textMuted: "#4C566A"
   }
 };

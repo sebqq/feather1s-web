@@ -53,7 +53,7 @@ const StyledSearchIcon = styled(SearchIcon)`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 20px;
+  left: 15px;
   z-index: 10;
   fill: ${props => props.theme.textColor};
   height: 54px;
@@ -97,18 +97,19 @@ const Input = styled.input`
   height: 100%;
   box-shadow: 0px 0px 13px 1px rgba(100, 100, 100, 0.1);
   border: 0;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: ${props => props.theme.backgroundTint};
   color: ${props => props.theme.textColor};
   font-size: 1.2rem;
   z-index: 5;
-  padding-left: 75px;
+  padding-left: 60px;
   padding-right: 60px;
   :focus {
     outline: none !important;
     box-shadow: 0px 0px 1px 1px royalblue;
   }
   ::placeholder {
+    color: ${props => props.theme.textMuted};
   }
 `;
 
