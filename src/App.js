@@ -21,7 +21,8 @@ const App = () => {
   );
 };
 
-const GlobalStyle = createGlobalStyle`  
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:200,400,700&display=swap');
   #root {
     height: 100vh;
   }
@@ -30,12 +31,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Arima Madurai', cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
   }
   body,
   html {
     background-color: rgb(250, 250, 250);
     overflow-x: hidden;
-    height: 100%
+    height: 100%;
   }
 `;
 

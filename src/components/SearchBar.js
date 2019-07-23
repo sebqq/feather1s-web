@@ -12,7 +12,7 @@ const SearchBar = ({ search, setSearch }) => {
 
   const handleChange = useCallback(
     event => {
-      setSearch(event.target.value);
+      setSearch(event.target.value.toLowerCase());
     },
     [setSearch]
   );
