@@ -57,6 +57,11 @@ const ListItem = styled.li`
   font-size: ${props => (props.isTitle ? "1.3" : "1")}rem;
 `;
 
+const SVG = styled(GithubIcon)`
+  margin-right: 7px;
+  flex: 1;
+`;
+
 const ListLink = styled.a`
   display: flex;
   justify-content: center;
@@ -65,22 +70,15 @@ const ListLink = styled.a`
   text-decoration: none;
   :hover {
     color: royalblue;
-    svg {
+    ${SVG} {
       fill: royalblue;
     }
   }
 `;
 
 const ListText = styled.span`
-  span {
-    flex: 1;
-    height: ${props => props.height}px;
-  }
-`;
-
-const SVG = styled(GithubIcon)`
-  margin-right: 7px;
   flex: 1;
+  height: ${props => props.height}px;
 `;
 
 export default memo(Header, () => true);

@@ -34,6 +34,13 @@ const IconContainer = styled.div`
   border-radius: 7px;
 `;
 
+const Text = styled.p`
+  word-wrap: break-word;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 10px;
+`;
+
 const Container = styled.a`
   display: flex;
   flex: 1;
@@ -45,20 +52,13 @@ const Container = styled.a`
   text-decoration: none;
   :hover {
     cursor: pointer;
-    svg {
+    ${SVG} {
       fill: royalblue;
     }
-    p {
+    ${Text} {
       color: royalblue;
     }
   }
-`;
-
-const Text = styled.p`
-  word-wrap: break-word;
-  text-align: center;
-  font-weight: 400;
-  margin-top: 10px;
 `;
 
 export default Icon;

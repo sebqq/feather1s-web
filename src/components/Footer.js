@@ -17,11 +17,11 @@ const Footer = () => {
 
 const Container = styled.div`
   display: flex !important;
+  flex: 1;
   justify-content: center;
   align-items: center;
   align-self: flex-end;
   flex-direction: column;
-  width: 100%;
   background-color: rgb(250, 250, 250);
   padding: 30px;
   margin-top: 40px;
