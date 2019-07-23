@@ -44,7 +44,6 @@ const GlobalStyle = createGlobalStyle`
   body,
   html {
     background-color: ${props => props.theme.backgroundColor};
-    overflow-x: hidden;
     height: 100%;
   }
 `;
