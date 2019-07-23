@@ -23,12 +23,11 @@ const Container = styled.div`
   max-width: ${props => props.width};
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  row-gap: 1rem;
-  -webkit-column-gap: 1rem;
-  grid-auto-rows: 2fr;
-  column-gap: 1rem;
   margin: 0 auto;
+  grid-auto-rows: 2fr;
+  row-gap: 1rem;
   column-gap: 1.5rem;
+  -webkit-column-gap: 1.5rem;
 `;
 
 const OuterContainer = styled.div`

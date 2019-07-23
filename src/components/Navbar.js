@@ -1,12 +1,11 @@
-import React, { memo, useContext } from "react";
-import { ThemeContext } from "styled-components";
+import React, { memo } from "react";
 import { ReactComponent as GithubIcon } from "../icons/github.svg";
 import useWindowSize from "@rehooks/window-size";
 import { Toggle } from "react-toggle-component";
 import styled from "styled-components";
+import theme from "../theme";
 
 const Navbar = ({ gTheme, setGlobalTheme }) => {
-  const themeContext = useContext(ThemeContext);
   const { innerWidth } = useWindowSize();
   const isMobile = innerWidth <= 725 ? true : false;
   const isXs = innerWidth < 400 ? true : false;
@@ -38,9 +37,12 @@ const Navbar = ({ gTheme, setGlobalTheme }) => {
         <ListItem>
           Theme
           <StyledToggle
-            backgroundColor={themeContext.backgroundColor}
-            borderColor={themeContext.textColor}
-            knobColor={themeContext.textColor}
+            leftBackgroundColor={theme.dark.backgroundColor}
+            rightBackgroundColor={theme.light.backgroundColor}
+            leftBorderColor={theme.light.textColor}
+            rightBorderColor={theme.dark.textColor}
+            rightKnobColor={theme.light.textColor}
+            leftKnobColor={theme.dark.textColor}
             name="theme-toggler"
             checked={themeValue}
             onToggle={handleSetTheme}
