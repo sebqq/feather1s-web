@@ -9,17 +9,17 @@ export default {
     primaryTint: "#4c566a",
     secondaryColor: "#eceff4",
     secondaryTint: "#E5E9F0",
-    linkColor: "royalblue"
+    linkColor: "#ff7675"
   },
   dark: {
     name: "dakr",
     backgroundColor: "rgb(15, 15, 20)",
-    backgroundTint: "rgb(10, 10, 10)",
+    backgroundTint: "#2E3440",
     textColor: "#fff",
     primaryColor: "#eceff4", // toto je zle
     primaryTint: "#D8DEE9",
     secondaryColor: "#434c5e",
     secondaryTint: "#4C566A",
-    linkColor: "royalblue"
+    linkColor: "#a29bfe"
   }
 };
