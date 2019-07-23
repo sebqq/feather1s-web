@@ -10,7 +10,8 @@
     "react-inlinesvg": "^1.0.0",
     "react-scripts": "3.0.1",
     "react-svg": "^10.0.11",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "styled-theming": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

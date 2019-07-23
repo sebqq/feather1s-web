@@ -1,23 +1,30 @@
 import React, { useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import IconList from "./components/IconList";
+import globalTheme from "./theme";
+
+const INITIAL_THEME = localStorage.getItem("theme") || "light";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [gTheme, setGlobalTheme] = useState(INITIAL_THEME);
+
   return (
-    <Container>
-      <GlobalStyle />
-      <Header>
-        <SearchBar search={search} setSearch={setSearch} />
-      </Header>
-      <BodyComponent>
-        <IconList search={search} />
-        <Footer />
-      </BodyComponent>
-    </Container>
+    <ThemeProvider theme={globalTheme[gTheme]}>
+      <Container>
+        <GlobalStyle />
+        <Header gTheme={gTheme} setGlobalTheme={setGlobalTheme}>
+          <SearchBar search={search} setSearch={setSearch} />
+        </Header>
+        <BodyComponent>
+          <IconList search={search} />
+          <Footer />
+        </BodyComponent>
+      </Container>
+    </ThemeProvider>
   );
 };
 
@@ -36,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body,
   html {
-    background-color: rgb(250, 250, 250);
+    background-color: ${props => props.theme.backgroundColor};
     overflow-x: hidden;
     height: 100%;
   }

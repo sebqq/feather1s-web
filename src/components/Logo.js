@@ -38,6 +38,7 @@ const Text = styled.p`
   font-size: 1.4rem;
   font-weight: 200;
   text-align: center;
+  color: ${props => props.theme.textColor};
   width: ${props => props.width}px;
 `;
 
