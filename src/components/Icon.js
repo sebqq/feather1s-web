@@ -8,7 +8,7 @@ const Icon = ({ name, search, size }) => {
     return (
       <SVG key={size} src={path} width={size} height={size} cacheRequests />
     );
-  }, [name, size, path]);
+  }, [size, path]);
 
   if (search && !name.includes(search)) {
     return null;
