@@ -4,10 +4,10 @@ import MainButtons from "./MainButtons";
 import styled from "styled-components";
 import Logo from "./Logo";
 
-const Header = ({ children }) => {
+const Header = ({ gTheme, setGlobalTheme, children }) => {
   return (
     <Container>
-      <Navbar />
+      <Navbar gTheme={gTheme} setGlobalTheme={setGlobalTheme} />
       <Logo />
       <MainButtons />
       {children}

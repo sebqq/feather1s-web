@@ -43,7 +43,7 @@ const Button = styled.button`
   padding: 16px 30px 12px 30px;
   margin: 10px;
   border-radius: 8px;
-  border: 0px solid;
+  border: none;
   font-family: "Arima Madurai", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,10 +59,10 @@ const Button = styled.button`
 `;
 
 const ButtonPrimary = styled(Button)`
-  color: #eceff4;
-  background: #434c5e;
+  color: ${props => props.theme.secondaryColor};
+  background: ${props => props.theme.primaryColor};
   :hover {
-    background: #4c566a;
+    background: ${props => props.theme.primaryTint};
   }
 `;
 
@@ -70,14 +70,14 @@ const StyledDownloadIcon = styled(DownloadIcon)`
   height: 17px;
   width: 17px;
   margin-right: 10px;
-  fill: #eceff4;
+  fill: ${props => props.theme.secondaryColor};
 `;
 
 const ButtonSecondary = styled(Button)`
-  color: #3b4252;
-  background: #e5e9f0;
+  color: ${props => props.theme.primaryColor};
+  background: ${props => props.theme.secondaryColor};
   :hover {
-    background: #eceff4;
+    background: ${props => props.theme.secondaryTint};
   }
   :focus {
     outline: none;

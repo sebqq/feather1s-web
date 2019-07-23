@@ -31,7 +31,7 @@ const SearchBar = ({ search, setSearch }) => {
       <StyledSearchIcon height={30} width={30} />
       <XOuterContainer>
         <XInnerContainer>
-          <XIcon height={20} width={20} onClick={resetSearch} />
+          <StyledXIcon height={20} width={20} onClick={resetSearch} />
         </XInnerContainer>
       </XOuterContainer>
     </Container>
@@ -55,7 +55,12 @@ const StyledSearchIcon = styled(SearchIcon)`
   bottom: 0;
   left: 20px;
   z-index: 10;
+  fill: ${props => props.theme.textColor};
   height: 54px;
+`;
+
+const StyledXIcon = styled(XIcon)`
+  fill: ${props => props.theme.textColor};
 `;
 
 const XOuterContainer = styled.div`
@@ -82,7 +87,7 @@ const XInnerContainer = styled.div`
   z-index: 11;
   :hover {
     cursor: pointer;
-    background-color: whitesmoke;
+    background-color: ${props => props.theme.backgroundColor};
     border-radius: 16;
   }
 `;
@@ -93,6 +98,8 @@ const Input = styled.input`
   box-shadow: 0px 0px 13px 1px rgba(100, 100, 100, 0.1);
   border: 0;
   border-radius: 20px;
+  background-color: ${props => props.theme.backgroundTint};
+  color: ${props => props.theme.textColor};
   font-size: 1.2rem;
   z-index: 5;
   padding-left: 75px;

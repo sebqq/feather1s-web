@@ -1,14 +1,22 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useContext } from "react";
+import { ThemeContext } from "styled-components";
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
 
 const Icon = ({ name, search, size }) => {
+  const themeContext = useContext(ThemeContext);
   const path = useMemo(() => require(`../icons/${name}.svg`), [name]);
   const icon = useMemo(() => {
     return (
-      <SVG key={size} src={path} width={size} height={size} cacheRequests />
+      <StyledSVG
+        key={`${themeContext.textColor}`}
+        src={path}
+        width={size}
+        height={size}
+        cacheRequests
+      />
     );
-  }, [size, path]);
+  }, [size, path, themeContext]);
 
   if (search && !name.includes(search)) {
     return null;
@@ -28,8 +36,11 @@ const IconContainer = styled.div`
   justify-content: center;
   width: 100px;
   height: 70px;
-  background-color: white;
-  box-shadow: 0px 0px 13px 1px rgba(100, 100, 100, 0.1);
+  background-color: ${props => props.theme.backgroundTint};
+  box-shadow: ${props =>
+    props.theme.name === "light"
+      ? "0px 0px 13px 1px rgba(100, 100, 100, 0.1)"
+      : "none"};
   margin: 0px;
   border-radius: 7px;
 `;
@@ -41,6 +52,10 @@ const Text = styled.p`
   margin-top: 10px;
 `;
 
+const StyledSVG = styled(SVG)`
+  fill: ${props => props.theme.textColor};
+`;
+
 const Container = styled.a`
   display: flex;
   flex: 1;
@@ -48,15 +63,15 @@ const Container = styled.a`
   justify-content: flex-start;
   align-items: center;
   margin: 0 5px;
-  color: black;
+  color: ${props => props.theme.textColor};
   text-decoration: none;
   :hover {
     cursor: pointer;
-    ${SVG} {
-      fill: royalblue;
+    ${StyledSVG} {
+      fill: ${props => props.theme.linkColor};
     }
     ${Text} {
-      color: royalblue;
+      color: ${props => props.theme.linkColor};
     }
   }
 `;

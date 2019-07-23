@@ -1,29 +1,50 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
+import { ThemeContext } from "styled-components";
 import { ReactComponent as GithubIcon } from "../icons/github.svg";
 import useWindowSize from "@rehooks/window-size";
+import { Toggle } from "react-toggle-component";
 import styled from "styled-components";
 
-const Header = () => {
+const Navbar = ({ gTheme, setGlobalTheme }) => {
+  const themeContext = useContext(ThemeContext);
   const { innerWidth } = useWindowSize();
-  const isMobile = innerWidth <= 500 ? true : false;
+  const isMobile = innerWidth <= 725 ? true : false;
   const isXs = innerWidth < 400 ? true : false;
+
+  const themeValue = gTheme === "dark";
+  const handleSetTheme = event => {
+    const newTheme = event.target.checked ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    setGlobalTheme(newTheme);
+  };
 
   return (
     <Container>
-      <List isMobile={isMobile} flex={1}>
+      <List isMobile={isMobile} flex={1} hide={isMobile}>
         <ListItem isTitle>Feather1s</ListItem>
       </List>
-      <List isMobile={isMobile} right flex={2}>
+      <List isMobile={isMobile} right flex={6}>
         <ListItem>
           <ListLink href="https://github.com/sinodko/feather1s" height={22}>
             <SVG width={20} height={20} />
             <ListText height={20}>GitHub</ListText>
           </ListLink>
         </ListItem>
-        <ListItem hide={isXs}>
+        <ListItem>
           <ListLink href="https://github.com/sinodko/react-native-feather1s">
-            <ListText height={20}>React Native</ListText>
+            <ListText height={20}>{isXs ? "RN" : "React Native"}</ListText>
           </ListLink>
+        </ListItem>
+        <ListItem>
+          Theme
+          <StyledToggle
+            backgroundColor={themeContext.backgroundColor}
+            borderColor={themeContext.textColor}
+            knobColor={themeContext.textColor}
+            name="toggle-3"
+            checked={themeValue}
+            onToggle={handleSetTheme}
+          />
         </ListItem>
       </List>
     </Container>
@@ -46,10 +67,12 @@ const List = styled.ul`
   margin-inline-end: ${props => (props.isMobile ? "5px" : "1em")};
   padding-inline-start: ${props => (props.isMobile ? "5px" : "40px")};
   padding-inline-end: ${props => (props.isMobile ? "5px" : "40px")};
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 20px;
 `;
 
 const ListItem = styled.li`
+  color: ${props => props.theme.textColor};
   display: ${props => (props.hide ? "none" : "inline-block")};
   margin-left: 15px;
   margin-right: 15px;
@@ -58,6 +81,7 @@ const ListItem = styled.li`
 `;
 
 const SVG = styled(GithubIcon)`
+  fill: ${props => props.theme.textColor};
   margin-right: 7px;
   flex: 1;
 `;
@@ -66,12 +90,12 @@ const ListLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: ${props => props.theme.textColor};
   text-decoration: none;
   :hover {
-    color: royalblue;
+    color: ${props => props.theme.linkColor};
     ${SVG} {
-      fill: royalblue;
+      fill: ${props => props.theme.linkColor};
     }
   }
 `;
@@ -81,4 +105,8 @@ const ListText = styled.span`
   height: ${props => props.height}px;
 `;
 
-export default memo(Header, () => true);
+const StyledToggle = styled(Toggle)`
+  margin-left: 10px;
+`;
+
+export default memo(Navbar);

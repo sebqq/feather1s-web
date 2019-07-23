@@ -22,18 +22,18 @@ const Container = styled.div`
   align-items: center;
   align-self: flex-end;
   flex-direction: column;
-  background-color: rgb(250, 250, 250);
+  background-color: ${props => props.theme.backgroundColor};
   padding: 30px;
   margin-top: 40px;
 `;
 
 const Link = styled.a`
-  color: royalblue;
+  color: ${props => props.theme.linkColor};
   text-decoration: none;
 `;
 
 const Text = styled.p`
-  color: rgb(65, 50, 50);
+  color: ${props => props.theme.textColor};
   margin-top: 0;
   margin-bottom: 5px;
 `;
