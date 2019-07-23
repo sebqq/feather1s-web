@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    font-family: 'Arima Madurai', cursive;
+    font-family: 'Arima Madurai', "Palatino Linotype", "Book Antiqua", Palatino, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-y: scroll; /* has to be scroll, not auto */
