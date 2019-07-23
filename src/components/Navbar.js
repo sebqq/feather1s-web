@@ -19,7 +19,7 @@ const Navbar = ({ gTheme, setGlobalTheme }) => {
   };
 
   return (
-    <Container>
+    <Container isMobile={isMobile}>
       <List isMobile={isMobile} flex={1} hide={isMobile}>
         <ListItem isTitle>Feather1s</ListItem>
       </List>
@@ -55,11 +55,12 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: ${props =>
+    props.isMobile ? "space-evenly" : "space-between"};
 `;
 
 const List = styled.ul`
-  display: ${({ isMobile, hide }) => (hide && isMobile ? "none" : "flex")};
-  flex: ${props => props.flex};
+  display: ${props => (props.hide && props.isMobile ? "none" : "flex")};
   justify-content: ${props => (props.right ? "flex-end" : "flex-start")};
   margin-block-start: 1em;
   margin-block-end: 1em;
