@@ -8,7 +8,7 @@ import styled from "styled-components";
 const Navbar = ({ gTheme, setGlobalTheme }) => {
   const themeContext = useContext(ThemeContext);
   const { innerWidth } = useWindowSize();
-  const isMobile = innerWidth <= 500 ? true : false;
+  const isMobile = innerWidth <= 725 ? true : false;
   const isXs = innerWidth < 400 ? true : false;
 
   const themeValue = gTheme === "dark";
@@ -20,10 +20,8 @@ const Navbar = ({ gTheme, setGlobalTheme }) => {
 
   return (
     <Container>
-      <List isMobile={isMobile} flex={1}>
-        <ListItem hide={isXs} isTitle>
-          Feather1s
-        </ListItem>
+      <List isMobile={isMobile} flex={1} hide={isMobile}>
+        <ListItem isTitle>Feather1s</ListItem>
       </List>
       <List isMobile={isMobile} right flex={6}>
         <ListItem>
@@ -32,9 +30,9 @@ const Navbar = ({ gTheme, setGlobalTheme }) => {
             <ListText height={20}>GitHub</ListText>
           </ListLink>
         </ListItem>
-        <ListItem hide={isXs}>
+        <ListItem>
           <ListLink href="https://github.com/sinodko/react-native-feather1s">
-            <ListText height={20}>React Native</ListText>
+            <ListText height={20}>{isXs ? "RN" : "React Native"}</ListText>
           </ListLink>
         </ListItem>
         <ListItem>
