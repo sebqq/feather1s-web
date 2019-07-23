@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Container>
       <Text>
-        Origin <Link href={"https://feathericons.com/"}>Feather icon pack</Link>{" "}
+        Origin <Link href={"https://feathericons.com/"}>Feather</Link> icon pack
         is created by <TextBold>Cole Bemis</TextBold>
       </Text>
       <Text>
