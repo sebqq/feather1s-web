@@ -41,7 +41,7 @@ const Navbar = ({ gTheme, setGlobalTheme }) => {
             backgroundColor={themeContext.backgroundColor}
             borderColor={themeContext.textColor}
             knobColor={themeContext.textColor}
-            name="toggle-3"
+            name="theme-toggler"
             checked={themeValue}
             onToggle={handleSetTheme}
           />
