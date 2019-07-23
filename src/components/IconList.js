@@ -24,7 +24,7 @@ const Container = styled.div`
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   margin: 0 auto;
-  grid-auto-rows: 2fr;
+  grid-auto-rows: 0fr;
   row-gap: 1rem;
   column-gap: 1.5rem;
   -webkit-column-gap: 1.5rem;

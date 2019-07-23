@@ -50,6 +50,7 @@ const Text = styled.p`
   text-align: center;
   font-weight: 400;
   margin-top: 10px;
+  margin-bottom: 3px;
 `;
 
 const StyledSVG = styled(SVG)`
