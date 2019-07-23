@@ -23,7 +23,7 @@ const Icon = ({ name, search, size }) => {
 };
 
 const IconContainer = styled.div`
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   width: 100px;
@@ -36,12 +36,13 @@ const IconContainer = styled.div`
 
 const Container = styled.a`
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   margin: 0 5px;
   color: black;
   text-decoration: none;
-  width: 100px;
   :hover {
     cursor: pointer;
     svg {
