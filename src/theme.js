@@ -13,7 +13,7 @@ export default {
     textMuted: "#4C566A"
   },
   dark: {
-    name: "dakr",
+    name: "dark",
     backgroundColor: "rgb(15, 15, 20)",
     backgroundTint: "#2E3440",
     textColor: "#fff",

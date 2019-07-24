@@ -9,7 +9,7 @@ const Footer = () => {
         is created by <TextBold>Cole Bemis</TextBold>
       </Text>
       <Text>
-        Feather1s are created by <TextBold>Sebastian Trebunak</TextBold>
+        Feather1s is created by <TextBold>Sebastian Trebunak</TextBold>
       </Text>
     </Container>
   );

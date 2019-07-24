@@ -17,7 +17,8 @@ const Logo = () => {
     <Container>
       <img src={logo} alt="Logo" width={imageWidth} />
       <Text width={textWidth}>
-        Feather1s is a super thin icon package based on Feather created by Cole
+        Feather1s is a super thin icon package based on{" "}
+        <Link href={"https://feathericons.com/"}>Feather</Link> created by Cole
         Bemis. Our icon package is ready to be used in popular font generators
         like Fontello or IcoMoon!
       </Text>
@@ -40,6 +41,11 @@ const Text = styled.p`
   text-align: center;
   color: ${props => props.theme.textColor};
   width: ${props => props.width}px;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  color: ${props => props.theme.linkColor};
 `;
 
 export default memo(Logo, () => true);
