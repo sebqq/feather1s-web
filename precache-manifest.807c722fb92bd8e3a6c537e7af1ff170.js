@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3a38e9612a4377a516cd630f0a5a67a5",
+    "revision": "6afcd8dfed5575c8e0619da3379c8436",
     "url": "/feather1s-web/index.html"
   },
   {
-    "revision": "dafd081ba1c6fb61c41f",
-    "url": "/feather1s-web/static/js/2.57f3d2cd.chunk.js"
+    "revision": "162a8181ea37e39e99ae",
+    "url": "/feather1s-web/static/js/2.99f5089f.chunk.js"
   },
   {
-    "revision": "a6028b7932deaf9feab5",
-    "url": "/feather1s-web/static/js/main.7225aba5.chunk.js"
+    "revision": "842728f2150751b6c552",
+    "url": "/feather1s-web/static/js/main.1fa36a32.chunk.js"
   },
   {
     "revision": "482b27db27f18314bf55",
@@ -120,20 +120,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/feather1s-web/static/media/award.25a17500.svg"
   },
   {
-    "revision": "10dc4f6b4fcc4a289e413e318d5ae49f",
-    "url": "/feather1s-web/static/media/bar-chart-2.10dc4f6b.svg"
+    "revision": "d313e151698cfc38aff0fae573858e01",
+    "url": "/feather1s-web/static/media/bar-chart-2.d313e151.svg"
   },
   {
-    "revision": "16c98fce6d19af07cde02afc8b61de67",
-    "url": "/feather1s-web/static/media/bar-chart.16c98fce.svg"
+    "revision": "277ac4a0f61abba805b321ea4447d70d",
+    "url": "/feather1s-web/static/media/bar-chart.277ac4a0.svg"
   },
   {
-    "revision": "1717c20d591ea9296ca2c70d4d83a091",
-    "url": "/feather1s-web/static/media/battery-charging.1717c20d.svg"
+    "revision": "7f5be1283bb08f561d94545648b52d6c",
+    "url": "/feather1s-web/static/media/battery-charging.7f5be128.svg"
   },
   {
-    "revision": "a8caa1bda85c23eacbe18246fe208bab",
-    "url": "/feather1s-web/static/media/battery.a8caa1bd.svg"
+    "revision": "b5092794959138e5229d798c36603955",
+    "url": "/feather1s-web/static/media/battery.b5092794.svg"
   },
   {
     "revision": "f029327865cc2f1fb10d780af879a8b2",
@@ -688,8 +688,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/feather1s-web/static/media/move.26522ee4.svg"
   },
   {
-    "revision": "bb097b23fbe311fed1cf551102256ccc",
-    "url": "/feather1s-web/static/media/music.bb097b23.svg"
+    "revision": "692730926bd448f970ad80b9ff191567",
+    "url": "/feather1s-web/static/media/music.69273092.svg"
   },
   {
     "revision": "360516114112f45a43bf7b9db2b32b0c",
